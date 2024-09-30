@@ -2,7 +2,6 @@ package wal
 
 import (
 	"fmt"
-	"github.com/ashwaniYDV/my-wal/types"
 	"hash/crc32"
 	"os"
 	"path/filepath"
@@ -12,8 +11,8 @@ import (
 
 // unmarshals the given data into a WAL entry and verifies CRC of the entry.
 // Only returns an error if the CRC is invalid.
-func unmarshalAndVerifyEntry(data []byte) (*types.WAL_Entry, error) {
-	var entry types.WAL_Entry
+func unmarshalAndVerifyEntry(data []byte) (*WAL_Entry, error) {
+	var entry WAL_Entry
 	MustUnmarshal(data, &entry)
 
 	if !verifyCRC(&entry) {
@@ -24,7 +23,7 @@ func unmarshalAndVerifyEntry(data []byte) (*types.WAL_Entry, error) {
 }
 
 // Validates whether the given entry has a valid CRC.
-func verifyCRC(entry *types.WAL_Entry) bool {
+func verifyCRC(entry *WAL_Entry) bool {
 	// Reset the entry CRC for the verification.
 	actualCRC := crc32.ChecksumIEEE(append(entry.GetData(), byte(entry.GetLogSequenceNumber())))
 

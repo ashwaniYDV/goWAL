@@ -1,6 +1,6 @@
-# my-wal: a Write-Ahead Log in Go
+# goWAL: a Write-Ahead Log in Go
 
-`my-wal` is a high-performance `Write-Ahead Log (WAL)` library written in Go. 
+`goWAL` is a high-performance `Write-Ahead Log (WAL)` library written in Go. 
 It delivers fast read and write capabilities, making it an ideal choice for high-throughput applications.
 
 ## Key Features
@@ -119,4 +119,5 @@ You can run the tests with the following command:
 
 ```bash
 go test ./...
+go test -bench=. -benchmem ./...
 ```

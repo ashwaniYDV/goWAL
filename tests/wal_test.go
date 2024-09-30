@@ -3,7 +3,6 @@ package tests
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/ashwaniYDV/my-wal/types"
 	"io"
 	"os"
 	"path/filepath"
@@ -12,7 +11,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ashwaniYDV/my-wal"
+	wal "github.com/ashwaniYDV/goWAL"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -363,7 +362,7 @@ func generateTestData() []Record {
 	return entries
 }
 
-func assertCollectionsAreIdentical(t *testing.T, expected []Record, actual []*types.WAL_Entry) {
+func assertCollectionsAreIdentical(t *testing.T, expected []Record, actual []*wal.WAL_Entry) {
 	assert.Equal(t, len(expected), len(actual), "Number of entries do not match")
 
 	for entryIndex, entry := range actual {

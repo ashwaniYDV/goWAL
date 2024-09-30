@@ -9,7 +9,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ashwaniYDV/my-wal"
+	wal "github.com/ashwaniYDV/goWAL"
 )
 
 const numEntries = 10_000_000 // Adjustable parameter for the number of entries

@@ -1,4 +1,4 @@
-module github.com/ashwaniYDV/my-wal
+module github.com/ashwaniYDV/goWAL
 
 go 1.23.0
 
